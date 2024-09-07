@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Script Generator</title>
+    <style>
+        body {
+            background-color: #0f0f0f;
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .header-text {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.2em;
+            letter-spacing: 0.5px;
+            opacity: 0;
+            animation: fadeIn 1.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .generator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .generator-container {
+            background-color: #1f1f1f;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: scale(0.95);
+            animation: appear 0.5s forwards ease;
+        }
+
+        @keyframes appear {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .generator-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            transition: background 0.3s ease;
+        }
+
+        .generator-container:hover::before {
+            background: rgba(0, 123, 255, 0.3);
+        }
+
+        .generator-container:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        h2 {
+            margin-top: 0;
+            position: relative;
+            z-index: 2;
+            font-size: 1.4em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #e6e6e6;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-text">
+        <p>Original: Vlorp</p>
+        <p>Recreated By: Unknown</p>
+    </div>
+
+    <div class="generator-grid">
+        <div class="generator-container" style="background-image: url('https://www.escapistmagazine.com/wp-content/uploads/2024/03/Zyleaks-MM2-featured.jpg?fit=1200%2C675');" onclick="navigateToLink('/generate.php?id=420PITONCV', false)">
+            <h2>MM2</h2>
+        </div>
+        <div class="generator-container" style="background-image: url('https://static.wikia.nocookie.net/roblox/images/8/89/PS99.png/');" onclick="navigateToLink('', true)">
+            <h2>PS99 [Soon!]</h2>
+        </div>
+        <div class="generator-container" style="background-image: url('https://tr.rbxcdn.com/0a884332123cac38c2db289222b3b260/768/432/Image/Webp');" onclick="navigateToLink('', true)">
+            <h2>Da Hood [Soon!]</h2>
+        </div>
+    </div>
+
+    <script>
+        function navigateToLink(link, isSoon) {
+            if (isSoon && !link) {
+                alert('Soon!');
+            } else {
+                window.location.href = link;
+            }
+        }
+    </script>
+
+</body>
+</html>
